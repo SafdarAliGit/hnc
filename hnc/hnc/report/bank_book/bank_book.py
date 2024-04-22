@@ -154,7 +154,7 @@ def get_data(filters):
                                  }]
     opening_balance_dict[0]['debit'] = sum_debit_and_credit_result[0]['total_debit'] if sum_debit_and_credit_result[0]['total_debit'] else 0
     opening_balance_dict[0]['credit'] = sum_debit_and_credit_result[0]['total_credit'] if sum_debit_and_credit_result[0]['total_credit'] else 0
-    opening_balance_dict[0]['remarks'] = sum_debit_and_credit_result[0]['total_debit'] if sum_debit_and_credit_result[0]['total_debit'] - sum_debit_and_credit_result[0]['total_credit'] else sum_debit_and_credit_result[0]['total_credit']
+    opening_balance_dict[0]['remarks'] = sum_debit_and_credit_result[0]['total_debit'] if sum_debit_and_credit_result[0]['total_debit'] else 0 -  sum_debit_and_credit_result[0]['total_credit'] if sum_debit_and_credit_result[0]['total_credit'] else 0
 
     # ====================CALCULATING TOTAL IN CASH RECEIVED====================
     cash_receipt_header_dict = [{'voucher_type': '<b><u>Cash Receipt</b></u>', 'posting_date': '', 'voucher_no': '',
