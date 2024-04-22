@@ -152,8 +152,8 @@ def get_data(filters):
     opening_balance_dict = [{'voucher_type': '<b>OPENING BALANCE</b>', 'posting_date': '', 'voucher_no': '',
                                  'party': '', 'debit': '', 'credit': '','remarks':''
                                  }]
-    opening_balance_dict[0]['debit'] = sum_debit_and_credit_result[0]['total_debit']
-    opening_balance_dict[0]['credit'] = sum_debit_and_credit_result[0]['total_credit']
+    opening_balance_dict[0]['debit'] = sum_debit_and_credit_result[0]['total_debit'] if sum_debit_and_credit_result[0]['total_debit'] else 0
+    opening_balance_dict[0]['credit'] = sum_debit_and_credit_result[0]['total_credit'] if sum_debit_and_credit_result[0]['total_credit'] else 0
     opening_balance_dict[0]['remarks'] = sum_debit_and_credit_result[0]['total_debit'] - sum_debit_and_credit_result[0]['total_credit']
 
     # ====================CALCULATING TOTAL IN CASH RECEIVED====================
@@ -165,7 +165,7 @@ def get_data(filters):
                                'remarks': '--------------'}
     debit = 0
     for index, cr in enumerate(bank_receipt_result):
-        debit += cr.debit
+        debit += cr.debit if cr.debit else 0
         bank_receipt_result[index][
             'party'] = f"{bank_receipt_result[index]['party']}  {' / ' + bank_receipt_result[index]['party_type'] if bank_receipt_result[index]['party_type'] else ''} {' / ' + bank_receipt_result[index]['party'] if bank_receipt_result[index]['party'] else ''}"
 
@@ -183,7 +183,7 @@ def get_data(filters):
                                'remarks': '--------------'}
     credit = 0
     for index, cr in enumerate(bank_payment_result):
-        credit += cr.credit
+        credit += cr.credit if cr.credit else 0
         bank_payment_result[index][
             'party'] = f"{bank_payment_result[index]['party']}  {' / ' + bank_payment_result[index]['party_type'] if bank_payment_result[index]['party_type'] else ''} {' / ' + bank_payment_result[index]['party'] if bank_payment_result[index]['party'] else ''}"
 
