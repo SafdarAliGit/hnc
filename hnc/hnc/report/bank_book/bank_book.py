@@ -157,7 +157,7 @@ def get_data(filters):
     opening_balance_dict[0]['remarks'] = sum_debit_and_credit_result[0]['total_debit'] if sum_debit_and_credit_result[0]['total_debit'] else 0 -  sum_debit_and_credit_result[0]['total_credit'] if sum_debit_and_credit_result[0]['total_credit'] else 0
 
     # ====================CALCULATING TOTAL IN CASH RECEIVED====================
-    cash_receipt_header_dict = [{'voucher_type': '<b><u>Cash Receipt</b></u>', 'posting_date': '', 'voucher_no': '',
+    cash_receipt_header_dict = [{'voucher_type': '<b><u>Bank Receipt</b></u>', 'posting_date': '', 'voucher_no': '',
                                  'party': '', 'debit': '', 'credit': ''
                                  }]
     cash_receipt_total_dict = {'voucher_type': '<b>Sum</b>', 'posting_date': '-------', 'voucher_no': '-------',
@@ -175,7 +175,7 @@ def get_data(filters):
     # ====================CALCULATING TOTAL IN CASH RECEIVED END====================
 
     # ====================CALCULATING TOTAL IN CASH PAID====================
-    cash_payment_header_dict = [{'voucher_type': '<b><u>Cash Payment</b></u>', 'posting_date': '', 'voucher_no': '',
+    cash_payment_header_dict = [{'voucher_type': '<b><u>Bank Payment</b></u>', 'posting_date': '', 'voucher_no': '',
                                  'party': '', 'debit': '', 'credit': ''
                                  }]
     cash_payment_total_dict = {'voucher_type': '<b>Sum</b>', 'posting_date': '-------', 'voucher_no': '-------',
