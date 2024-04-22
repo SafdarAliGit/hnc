@@ -194,7 +194,7 @@ def get_data(filters):
     # ====================BALANCE====================
     cash_payment_total_dict = {'voucher_type': '<b>BALANCE</b>', 'posting_date': '', 'voucher_no': '',
                                'party': '', 'debit': debit + sum_debit_and_credit_result[0]['total_debit'], 'credit': credit + sum_debit_and_credit_result[0]['total_credit'] if sum_debit_and_credit_result[0]['total_credit'] else 0,
-                               'remarks': f"<b>{(debit + sum_debit_and_credit_result[0]['total_debit']) - (credit + sum_debit_and_credit_result[0]['total_credit'] if sum_debit_and_credit_result[0]['total_credit'] else 0)}</b>"}
+                               'remarks': f"<b>{(debit + sum_debit_and_credit_result[0]['total_debit'] if sum_debit_and_credit_result[0]['total_debit'] else 0) - (credit + sum_debit_and_credit_result[0]['total_credit'] if sum_debit_and_credit_result[0]['total_credit'] else 0)}</b>"}
 
     bank_payment_result.append(cash_payment_total_dict)
     # ====================BALANCE END====================
